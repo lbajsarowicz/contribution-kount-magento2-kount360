@@ -47,7 +47,7 @@ class Settings
                 'SIMPLE_LOG_LEVEL' => 'DEBUG',
                 'SIMPLE_LOG_FILE' => Log::FILENAME,
                 'SIMPLE_LOG_PATH' => $this->filesystem->getDirectoryRead(DirectoryList::LOG)->getAbsolutePath(),
-                'SIMPLE_LOG_RIS_METRICS' => $this->configLog->isRisMetricsEnabled()
+                'SIMPLE_LOG_RIS_METRICS' => $this->configLog->isRisMetricsEnabled($websiteCode)
             ];
         } else {
             $this->settings += [

@@ -30,10 +30,15 @@ class Log
     }
 
     /**
+     * @param string|null $websiteCode
      * @return bool
      */
-    public function isRisMetricsEnabled(): bool
+    public function isRisMetricsEnabled($websiteCode = null): bool
     {
-        return $this->scopeConfig->isSetFlag('kount360/log/ris_metrics_enabled');
+        return $this->scopeConfig->isSetFlag(
+            'kount360/log/ris_metrics_enabled',
+            ScopeInterface::SCOPE_WEBSITE,
+            $websiteCode
+        );
     }
 }

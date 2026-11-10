@@ -179,6 +179,7 @@ class ApiClient
                 'json' => $body,
             ]);
             $this->logger->info('End Request Time:' . gmdate('Y-m-d\TH:i:s\Z'));
+            $this->authenticationRetried = false;
             return json_decode($response->getBody()->getContents(), true);
         } catch (ClientException $e) {
             if ($e->getResponse()->getStatusCode() === 401) {
@@ -224,6 +225,7 @@ class ApiClient
                 'json' => $body,
             ]);
             $this->logger->info('End Request Time:' . gmdate('Y-m-d\TH:i:s\Z'));
+            $this->authenticationRetried = false;
             return json_decode($response->getBody()->getContents(), true);
         } catch (ClientException $e) {
             if ($e->getResponse()->getStatusCode() === 401) {
